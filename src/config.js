@@ -1,0 +1,50 @@
+// Edytuj wszystkie dane pary, datę, miejsca i kontakt właśnie tutaj.
+export const wedding = {
+  couple: {
+    firstNameOne: 'Aleksandra',
+    firstNameTwo: 'Michał',
+    lastNameOne: 'Winiarska',
+    lastNameTwo: 'Dembiński',
+    display: 'Aleksandra & Michał',
+    initials: 'A & M',
+    phoneOne: '+48 509 135 217',
+    phoneTwo: '+48 693 419 336',
+    emailOne: 'ola.winiarska@wp.pl',
+    emailTwo: 'mdembinski2000@gmail.com',
+  },
+  date: '2027-06-12T15:00:00+02:00',
+  dateLabel: '30 kwietnia 2027',
+  weekday: 'sobota',
+  ceremonyTime: '14:00',
+  partyTime: '16:00',
+  venue: {
+    name: 'Spichlerz Galowice',
+    address: 'ul. Leśna 7, 55-020 Galowice',
+    ceremony: 'Kościół pw. Narodzenia Najświętszej Marii Panny w Turowie',
+    party: 'Spichlerz Galowice',
+    mapUrl: 'https://maps.app.goo.gl/DmfxhpRY4dML8nWY9',
+  },
+  rsvp: {
+    email: 'ola.winiarska1@wp.pl',
+    deadline: '30 kwietnia 2027',
+    phone: '+48 693 419 336',
+  },
+  lodging: {
+    name: 'Spichlerz Galowice',
+    address: 'Leśna 7, 55-020 Galowice',
+    note: 'Dajcie nam znać, jeśli potrzebujecie noclegu — pomożemy znaleźć najlepszą opcję.',
+  },
+  schedule: [
+    { time: '14:30', title: 'Powitanie gości', detail: 'Pierwsze uśmiechy i coś orzeźwiającego' },
+    { time: '15:00', title: 'Ceremonia', detail: 'Przysięga w ogrodzie pałacowym' },
+    { time: '16:00', title: 'Toast i życzenia', detail: 'Świętujemy początek naszej wspólnej drogi' },
+    { time: '17:00', title: 'Przyjęcie weselne', detail: 'Kolacja, tańce i dużo radości' },
+    { time: '00:00', title: 'Tort weselny', detail: 'Słodki przystanek w środku zabawy' },
+  ],
+  story: [
+    { year: '2017', title: 'Pierwsze spotkanie', text: 'Zwykły wieczór, który szybko okazał się początkiem czegoś niezwykłego.' },
+    { year: '2025', title: 'Pytanie i odpowiedź', text: 'Padło najważniejsze pytanie. Odpowiedź była prosta: tak, na zawsze.' },
+  ],
+  dressCode: 'Letnia elegancja. Prosimy, zostawcie biel dla Panny Młodej.',
+  giftNote: 'Największym prezentem będzie Wasza obecność. Jeśli jednak chcecie nas obdarować, ucieszy nas koperta.',
+};
