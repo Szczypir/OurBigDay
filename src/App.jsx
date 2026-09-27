@@ -78,14 +78,27 @@ function Story() {
 }
 
 export default function App() {
-  const routeFromHash = window.location.hash.replace(/^#/, '') || '/';
-  const routeFromPath = window.location.pathname.replace(/\/$/, '') || '/';
-  const path = routeFromHash.startsWith('/') ? routeFromHash : routeFromPath;
+  function getRoute() {
+    const hashRoute = window.location.hash.replace(/^#/, '') || '/';
+    const pathRoute = window.location.pathname.replace(/\/$/, '') || '/';
+    return hashRoute.startsWith('/') ? hashRoute : pathRoute;
+  }
+
+  const [path, setPath] = useState(getRoute);
+
+  useEffect(() => {
+    const onHashChange = () => setPath(getRoute());
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
+
   const pages = { '/': <Home/>, '/szczegoly': <Details/>, '/plan': <Schedule/>, '/praktycznie': <Practical/>, '/rsvp': <RSVP/>, '/historia': <Story/> };
   const page = pages[path] || <Home/>;
+
   useEffect(() => {
     const titles = { '/': 'Nasza historia', '/szczegoly': 'Szczegóły', '/plan': 'Plan dnia', '/praktycznie': 'Praktycznie', '/rsvp': 'RSVP', '/historia': 'Nasza historia' };
     document.title = `${titles[path] || 'Nasza historia'} — ${wedding.couple.display}`;
   }, [path]);
+
   return <><Header/><main key={path}>{page}</main><Footer/></>;
 }
