@@ -48,4 +48,11 @@ export const wedding = {
   ],
   dressCode: 'Letnia elegancja. Prosimy, zostawcie kolory bieli dla Panny Młodej.',
   giftNote: 'Największym prezentem będzie Wasza obecność. Jeśli jednak chcecie nas obdarować, ucieszy nas koperta.',
+  faq: [
+    { question: 'Gdzie zaparkować?', answer: 'Przy kościele i Spichlerzu korzystajcie z wyznaczonych miejsc parkingowych oraz oznaczeń na miejscu.' },
+    { question: 'Jak dojechać na ceremonię i przyjęcie?', answer: 'Mapy obu miejsc znajdziecie w zakładce Szczegóły. W razie pytań zadzwońcie do nas.' },
+    { question: 'Czy będzie nocleg?', answer: 'Jeśli potrzebujecie noclegu, dajcie nam znać. Pomożemy znaleźć najlepszą opcję w okolicy.' },
+    { question: 'Jaki obowiązuje strój?', answer: 'Letnia elegancja. Prosimy, zostawcie kolory bieli dla Panny Młodej.' },
+    { question: 'Do kiedy potwierdzić obecność?', answer: 'Prosimy o odpowiedź do 30 kwietnia 2027 roku.' },
+  ],
 };

@@ -5,6 +5,7 @@ const nav = [
   ['#/szczegoly', 'Szczegóły'],
   ['#/plan', 'Plan dnia'],
   ['#/praktycznie', 'Praktycznie'],
+  ['#/faq', 'FAQ'],
 ];
 const date = new Date(wedding.date);
 const formattedDate = new Intl.DateTimeFormat('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' }).format(date);
@@ -49,7 +50,7 @@ function PageIntro({ number, eyebrow, title, subtitle }) {
 function Details() {
   const mapQuery = encodeURIComponent(`${wedding.venue.name}, ${wedding.venue.address}`);
   const ceremonyQuery = encodeURIComponent(`${wedding.venue.ceremony}, Borowo`);
-  return <><PageIntro number="01" eyebrow="SZCZEGÓŁY" title={<>Ważne chwile,<br/><em>piękne miejsce.</em></>} subtitle="Wszystko, co warto wiedzieć o naszym wspólnym dniu."/><section className="details-grid section-wrap"><article className="detail-card"><span className="detail-number">01 / CEREMONIA</span><span className="detail-icon">*</span><h2>Powiedzmy<br/>sobie „tak”.</h2><p>{wedding.venue.ceremony}<br/>{wedding.venue.name}<br/>{wedding.venue.address}</p><strong>od {wedding.partyTime}</strong></article><article className="detail-card detail-dark"><span className="detail-number">02 / PRZYJĘCIE</span><span className="detail-icon">*</span><h2>Świętujmy<br/>do rana.</h2><p>{wedding.venue.party}<br/>{wedding.venue.name}<br/>{wedding.venue.address}</p><strong>od 17:00</strong></article></section><section className="map-callout"><div><p className="eyebrow">JAK DOJECHAĆ?</p><h2>Widzimy się<br/><em>w {wedding.venue.where}</em></h2><p>{wedding.venue.name}<br/>{wedding.venue.address}</p></div><a className="button button-dark" href={wedding.venue.mapUrl} target="_blank" rel="noreferrer">Otwórz mapę <span>↗</span></a><span className="map-deco">52°<br/>N 20° E</span><div className="map-embed"><iframe title={`Mapa dojazdu do ${wedding.venue.name}`} src={`https://www.google.com/maps?q=${mapQuery}&output=embed`} loading="lazy" referrerPolicy="no-referrer-when-downgrade"/></div></section><section className="map-callout ceremony-map"><div><p className="eyebrow">CEREMONIA</p><h2>Spotkajmy się<br/><em>w kościele.</em></h2><p>{wedding.venue.ceremony}</p></div><a className="button button-dark" href={`https://www.google.com/maps/search/?api=1&query=${ceremonyQuery}`} target="_blank" rel="noreferrer">Otwórz mapę <span>↗</span></a><div className="map-embed"><iframe title="Mapa dojazdu do kościoła" src={`https://www.google.com/maps?q=${ceremonyQuery}&output=embed`} loading="lazy" referrerPolicy="no-referrer-when-downgrade"/></div></section></>;
+  return <><PageIntro number="01" eyebrow="SZCZEGÓŁY" title={<>Ważne chwile,<br/><em>piękne miejsce.</em></>} subtitle="Wszystko, co warto wiedzieć o naszym wspólnym dniu."/><section className="details-grid section-wrap"><article className="detail-card"><span className="detail-number">01 / CEREMONIA</span><span className="detail-icon">*</span><h2>Powiedzmy<br/>sobie „tak”.</h2><p>{wedding.venue.ceremony}<br/>{wedding.venue.address}</p><strong>od {wedding.partyTime}</strong></article><article className="detail-card detail-dark"><span className="detail-number">02 / PRZYJĘCIE</span><span className="detail-icon">*</span><h2>Świętujmy<br/>do rana.</h2><p>{wedding.venue.party}<br/>{wedding.venue.address}</p><strong>od 17:00</strong></article></section><section className="map-callout ceremony-map"><div><p className="eyebrow">CEREMONIA</p><h2>Spotkajmy się<br/><em>w kościele.</em></h2><p>{wedding.venue.ceremony}</p></div><a className="button button-dark" href={`https://www.google.com/maps/search/?api=1&query=${ceremonyQuery}`} target="_blank" rel="noreferrer">Otwórz mapę <span>↗</span></a><div className="map-embed"><iframe title="Mapa dojazdu do kościoła" src={`https://www.google.com/maps?q=${ceremonyQuery}&output=embed`} loading="lazy" referrerPolicy="no-referrer-when-downgrade"/></div></section><section className="map-callout"><div><p className="eyebrow">JAK DOJECHAĆ?</p><h2>Zabawa do rana<br/><em>w {wedding.venue.where}</em></h2><p>{wedding.venue.name}<br/>{wedding.venue.address}</p></div><a className="button button-dark" href={wedding.venue.mapUrl} target="_blank" rel="noreferrer">Otwórz mapę <span>↗</span></a><span className="map-deco">52°<br/>N 20° E</span><div className="map-embed"><iframe title={`Mapa dojazdu do ${wedding.venue.name}`} src={`https://www.google.com/maps?q=${mapQuery}&output=embed`} loading="lazy" referrerPolicy="no-referrer-when-downgrade"/></div></section></>;
 }
 
 function Schedule() {
@@ -58,6 +59,10 @@ function Schedule() {
 
 function Practical() {
   return <><PageIntro number="03" eyebrow="PRAKTYCZNIE" title={<>Małe podpowiedzi<br/><em>na wielki dzień.</em></>} subtitle="Kilka informacji, dzięki którym będziecie mogli skupić się na świętowaniu."/><section className="practical-grid section-wrap"><article><span className="detail-number">01 / UBIÓR</span><h2>Letnia elegancja</h2><p>{wedding.dressCode}</p></article><article><span className="detail-number">02 / NOCLEG</span><h2>{wedding.lodging.name}</h2><p>{wedding.lodging.note}<br/>{wedding.lodging.address}</p></article><article><span className="detail-number">03 / PREZENTY</span><h2>Wasza obecność</h2><p>{wedding.giftNote}</p></article><article><span className="detail-number">04 / PYTANIA</span><h2>Jesteśmy dla Was</h2><p>{wedding.couple.firstNameOne}: {wedding.couple.phoneOne}<br/>{wedding.couple.firstNameTwo}: {wedding.couple.phoneTwo}<br/></p></article></section><section className="rsvp-strip"><div><p className="eyebrow light">PROSIMY O ODPOWIEDŹ DO {wedding.rsvp.deadline.toUpperCase()}</p><h2>Liczymy na Was!</h2></div><a className="button button-light" href="/rsvp">Potwierdź obecność <span>↗</span></a></section></>;
+}
+
+function FAQ() {
+  return <><PageIntro number="04" eyebrow="FAQ" title={<>Dobrze wiedzieć,<br/><em>zanim się spotkamy.</em></>} subtitle="Najważniejsze informacje w jednym miejscu."/><section className="faq-list section-wrap">{wedding.faq.map((item) => <details className="faq-item" key={item.question}><summary>{item.question}<span>+</span></summary><p>{item.answer}</p></details>)}</section></>;
 }
 
 function RSVP() {
@@ -88,11 +93,11 @@ export default function App() {
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
 
-  const pages = { '/': <Home/>, '/szczegoly': <Details/>, '/plan': <Schedule/>, '/praktycznie': <Practical/>, '/rsvp': <RSVP/> };
+  const pages = { '/': <Home/>, '/szczegoly': <Details/>, '/plan': <Schedule/>, '/praktycznie': <Practical/>, '/faq': <FAQ/>, '/rsvp': <RSVP/> };
   const page = pages[path] || <Home/>;
 
   useEffect(() => {
-    const titles = { '/': 'Nasza historia', '/szczegoly': 'Szczegóły', '/plan': 'Plan dnia', '/praktycznie': 'Praktycznie', '/rsvp': 'RSVP', '/historia': 'Nasza historia' };
+    const titles = { '/': 'Nasza historia', '/szczegoly': 'Szczegóły', '/plan': 'Plan dnia', '/praktycznie': 'Praktycznie', '/faq': 'FAQ', '/rsvp': 'RSVP', '/historia': 'Nasza historia' };
     document.title = `${titles[path] || 'Nasza historia'} — ${wedding.couple.display}`;
   }, [path]);
 
