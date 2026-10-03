@@ -1,4 +1,6 @@
 // Edytuj wszystkie dane pary, datę, miejsca i kontakt właśnie tutaj.
+import aykmImage from './assets/aykm.jpg';
+
 export const wedding = {
   couple: {
     firstNameOne: 'Aleksandra',
@@ -22,11 +24,12 @@ export const wedding = {
     where: 'spichlerzu',
     address: 'ul. Leśna 7, 55-020 Galowice',
     ceremony: 'Kościół pw. Narodzenia Najświętszej Marii Panny i św. Wolfganga w Borowie',
+    ceremonyAddress: 'ul. Starowiejska 2, 57-160 Borów',
     party: 'Spichlerz Galowice',
     mapUrl: 'https://maps.app.goo.gl/DmfxhpRY4dML8nWY9',
   },
   rsvp: {
-    email: 'm.dembinski2000@gmail.com',
+    email: 'mdembinski2000@gmail.com',
     deadline: '30 kwietnia 2027',
     phone: '+48 693 419 336',
   },
@@ -36,23 +39,17 @@ export const wedding = {
     note: 'Dajcie nam znać, jeśli potrzebujecie noclegu — pomożemy znaleźć najlepszą opcję.',
   },
   schedule: [
-    { time: '14:30', title: 'Powitanie gości', detail: 'Pierwsze uśmiechy i coś orzeźwiającego' },
-    { time: '15:00', title: 'Ceremonia', detail: 'Przysięga w ogrodzie pałacowym' },
-    { time: '16:00', title: 'Toast i życzenia', detail: 'Świętujemy początek naszej wspólnej drogi' },
-    { time: '17:00', title: 'Przyjęcie weselne', detail: 'Kolacja, tańce i dużo radości' },
-    { time: '00:00', title: 'Tort weselny', detail: 'Słodki przystanek w środku zabawy' },
+    { time: '14:30', title: 'Ceremonia', detail: 'Msza święta w kościele w Borowie' },
+    { time: '16:00', title: 'Przyjazd do spichlerza', detail: 'Zbieramy się w Spichlerzu Galowice' },
+    { time: '04:00', title: 'Zakończenie zabawy', detail: 'Ostatnie tany i pożegnanie' },
   ],
-  story: [
-    { year: '2017', title: 'Pierwsze spotkanie', text: 'Zwykły wieczór, który szybko okazał się początkiem czegoś niezwykłego.' },
-    { year: '2025', title: 'Pytanie i odpowiedź', text: 'Padło najważniejsze pytanie. Odpowiedź była prosta: tak, na zawsze.' },
-  ],
-  dressCode: 'Letnia elegancja. Prosimy, zostawcie kolory bieli dla Panny Młodej.',
+  dressCode: 'Letnia elegancja. Prosimy, zostawcie kolory bieli dla Panny sMłodej.',
   giftNote: 'Największym prezentem będzie Wasza obecność. Jeśli jednak chcecie nas obdarować, ucieszy nas koperta.',
   faq: [
-    { question: 'Gdzie zaparkować?', answer: 'Przy kościele i Spichlerzu korzystajcie z wyznaczonych miejsc parkingowych oraz oznaczeń na miejscu.' },
-    { question: 'Jak dojechać na ceremonię i przyjęcie?', answer: 'Mapy obu miejsc znajdziecie w zakładce Szczegóły. W razie pytań zadzwońcie do nas.' },
-    { question: 'Czy będzie nocleg?', answer: 'Jeśli potrzebujecie noclegu, dajcie nam znać. Pomożemy znaleźć najlepszą opcję w okolicy.' },
-    { question: 'Jaki obowiązuje strój?', answer: 'Letnia elegancja. Prosimy, zostawcie kolory bieli dla Panny Młodej.' },
+    { question: 'Gdzie zaparkować?', answer: 'Przy kościele parkujemy wzduż ulic staromiejsiej i konstytucji 3 maja, pod Spichlerzem korzystajcie z miejsc przy ulicach  Leśnej i Irysowej.' },
+    { question: 'Jak dojechać na ceremonię i przyjęcie?', answer: 'Mapy obu miejsc znajdziecie w zakładce Szczegóły. W razie pytań zadzwońcie do nas (Michał powinien odebrać 😄).' },
+    { question: 'Czy będzie nocleg?', answer: 'Jeśli potrzebujecie noclegu, dajcie nam znać. Pomożemy znaleźć najlepszą opcję w okolicy. Zaznaczcie to przy potwierdzaniu obecności.' },
+    { question: 'Czy mogę ubrać się na biało/beżowo/ecru?', image: { src: aykmImage, alt: 'Ola w białej czapce i okularach przeciwsłonecznych' }, answer: 'Możesz, ale nie chciałbym być w twojej skórze... Żartujemy! Prosimy, zostawcie kolory bieli dla Panny Młodej.' },
     { question: 'Do kiedy potwierdzić obecność?', answer: 'Prosimy o odpowiedź do 30 kwietnia 2027 roku.' },
   ],
 };
