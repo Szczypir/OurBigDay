@@ -13,17 +13,26 @@ const nav = [
   ['/faq', 'FAQ'],
   ['/kontakt', 'Kontakt'],
 ];
+const baseUrl = import.meta.env.BASE_URL;
+
+function routeHref(path) {
+  return `${baseUrl}${path.replace(/^\//, '')}`;
+}
+
 function Header() {
-  return <header className="topbar"><a className="brand" href="/">{wedding.couple.initials}</a><nav aria-label="Główna nawigacja">{nav.map(([path, title]) => <a href={path} key={path}>{title}</a>)}</nav><a className="nav-rsvp" href="/rsvp">Potwierdź obecność <span>↗</span></a></header>;
+  return <header className="topbar"><a className="brand" href={routeHref('/')}>{wedding.couple.initials}</a><nav aria-label="Główna nawigacja">{nav.map(([path, title]) => <a href={routeHref(path)} key={path}>{title}</a>)}</nav><a className="nav-rsvp" href={routeHref('/rsvp')}>Potwierdź obecność <span>↗</span></a></header>;
 }
 
 function Footer() {
-  return <footer className="footer"><a className="brand" href="/">{wedding.couple.initials}</a><p>Z miłością, {wedding.couple.firstNameOne} i {wedding.couple.firstNameTwo} · {wedding.dateLabel}</p><a href="/rsvp">Dajcie nam znać, czy będziecie <span>↗</span></a></footer>;
+  return <footer className="footer"><a className="brand" href={routeHref('/')}>{wedding.couple.initials}</a><p>Z miłością, {wedding.couple.firstNameOne} i {wedding.couple.firstNameTwo} · {wedding.dateLabel}</p><a href={routeHref('/rsvp')}>Dajcie nam znać, czy będziecie <span>↗</span></a></footer>;
 }
 
 export default function App() {
   function getRoute() {
-    return window.location.pathname.replace(/\/$/, '') || '/';
+    const pathname = window.location.pathname.startsWith(baseUrl)
+      ? `/${window.location.pathname.slice(baseUrl.length)}`
+      : window.location.pathname;
+    return pathname.replace(/\/$/, '') || '/';
   }
 
   const path = getRoute();
