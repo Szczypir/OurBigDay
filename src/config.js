@@ -17,7 +17,7 @@ export const wedding = {
   date: '2027-06-12T15:00:00+02:00',
   dateLabel: '12 czerwca 2027',
   weekday: 'sobota',
-  ceremonyTime: '14:00',
+  ceremonyTime: '14:30',
   partyTime: '16:00',
   venue: {
     name: 'Spichlerz Galowice',
