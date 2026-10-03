@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { wedding } from './config.js';
 import Home from './pages/Home.jsx';
 import Details from './pages/Details.jsx';
@@ -21,7 +21,25 @@ function routeHref(path) {
 }
 
 function Header({ activePath }) {
-  return <header className="topbar"><a className="brand" href={routeHref('/')}>{wedding.couple.initials}</a><nav aria-label="Główna nawigacja">{nav.map(([path, title]) => <a href={routeHref(path)} key={path} aria-current={path === activePath ? 'page' : undefined} style={path === activePath ? { color: 'var(--rust)' } : undefined}>{title}</a>)}</nav><a className="nav-rsvp" href={routeHref('/rsvp')} aria-current={activePath === '/rsvp' ? 'page' : undefined} style={activePath === '/rsvp' ? { color: 'var(--rust)' } : undefined}>Potwierdź obecność <span>↗</span></a></header>;
+  const [isHidden, setIsHidden] = useState(false);
+
+  useEffect(() => {
+    let previousScrollY = window.scrollY;
+    function handleScroll() {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY < 24) {
+        setIsHidden(false);
+      } else if (Math.abs(currentScrollY - previousScrollY) > 3) {
+        setIsHidden(currentScrollY > previousScrollY);
+      }
+      previousScrollY = currentScrollY;
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return <header className={`topbar${isHidden ? ' topbar-hidden' : ''}`}><a className="brand" href={routeHref('/')}>{wedding.couple.initials}</a><nav aria-label="Główna nawigacja">{nav.map(([path, title]) => <a href={routeHref(path)} key={path} aria-current={path === activePath ? 'page' : undefined}>{title}</a>)}</nav><a className="nav-rsvp" href={routeHref('/rsvp')} aria-current={activePath === '/rsvp' ? 'page' : undefined}>Potwierdź obecność <span>↗</span></a></header>;
 }
 
 function Footer() {
