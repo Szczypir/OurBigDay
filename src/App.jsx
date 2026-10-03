@@ -8,6 +8,7 @@ import RSVP from './pages/RSVP.jsx';
 import Contact from './pages/Contact.jsx';
 
 const nav = [
+  ['/', 'Strona główna'],
   ['/szczegoly', 'Szczegóły'],
   ['/plan', 'Plan dnia'],
   ['/faq', 'FAQ'],
@@ -19,8 +20,8 @@ function routeHref(path) {
   return `${baseUrl}${path.replace(/^\//, '')}`;
 }
 
-function Header() {
-  return <header className="topbar"><a className="brand" href={routeHref('/')}>{wedding.couple.initials}</a><nav aria-label="Główna nawigacja">{nav.map(([path, title]) => <a href={routeHref(path)} key={path}>{title}</a>)}</nav><a className="nav-rsvp" href={routeHref('/rsvp')}>Potwierdź obecność <span>↗</span></a></header>;
+function Header({ activePath }) {
+  return <header className="topbar"><a className="brand" href={routeHref('/')}>{wedding.couple.initials}</a><nav aria-label="Główna nawigacja">{nav.map(([path, title]) => <a href={routeHref(path)} key={path} aria-current={path === activePath ? 'page' : undefined} style={path === activePath ? { color: 'var(--rust)' } : undefined}>{title}</a>)}</nav><a className="nav-rsvp" href={routeHref('/rsvp')} aria-current={activePath === '/rsvp' ? 'page' : undefined} style={activePath === '/rsvp' ? { color: 'var(--rust)' } : undefined}>Potwierdź obecność <span>↗</span></a></header>;
 }
 
 function Footer() {
@@ -45,5 +46,5 @@ export default function App() {
     document.title = `${titles[path] || 'Nasza historia'} — ${wedding.couple.display}`;
   }, [path]);
 
-  return <><Header/><main key={path}>{page}</main><Footer/></>;
+  return <><Header activePath={path}/><main key={path}>{page}</main><Footer/></>;
 }

@@ -39,7 +39,6 @@ export default function Details() {
           <p>{wedding.venue.name}<br/>{wedding.venue.address}</p>
         </div>
         <a className="button button-dark" href={wedding.venue.mapUrl} target="_blank" rel="noreferrer">Otwórz mapę <span>↗</span></a>
-        <span className="map-deco">52°<br/>N 20° E</span>
         <div className="map-embed">
           <iframe title={`Mapa dojazdu do ${wedding.venue.name}`} src={`https://www.google.com/maps?q=${mapQuery}&output=embed`} loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
         </div>

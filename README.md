@@ -15,7 +15,18 @@ Wymagany jest Node.js w wersji LTS (zawiera npm). W katalogu projektu uruchom:
 
 Edytuj `src/config.js`, aby zmienić imiona, nazwiska, datę i godzinę, miejsce, kontakt, plan dnia, historię, dress code oraz informacje praktyczne. Zdjęcie tła można podmienić w regule `.hero-photo` w `src/styles.css`. Obecne zdjęcie i fonty pochodzą z zewnętrznych usług Unsplash i Google Fonts; można je zastąpić własnymi lokalnymi plikami.
 
-Formularz RSVP nie wysyła ani nie przechowuje danych na serwerze. Przygotowuje wiadomość w domyślnym programie pocztowym gościa — adres e-mail zmień w `src/config.js`. Jeśli formularz ma zapisywać odpowiedzi online, będzie potrzebna zewnętrzna usługa formularzy lub własne API.
+Formularz RSVP wysyła odpowiedź przez EmailJS na oba adresy z `src/config.js`. Odpowiedzi nie są zapisywane w tej aplikacji; konfigurację wysyłki znajdziesz poniżej.
+
+### Bezpośrednia wysyłka RSVP przez EmailJS
+
+Formularz wysyła odpowiedzi bez otwierania aplikacji pocztowej. Wymaga konfiguracji EmailJS:
+
+1. Utwórz usługę e-mail i szablon. W polu odbiorcy szablonu ustaw `{{to_email}}`; treść może korzystać ze zmiennych `{{from_name}}`, `{{attendance}}`, `{{guests}}` i `{{note}}`.
+2. Dodaj domenę `https://am-wedding.com.pl` do dozwolonych domen w EmailJS.
+3. Skopiuj `.env.example` do `.env.local` i uzupełnij Service ID, Template ID oraz Public Key z panelu EmailJS.
+4. W GitHubie dodaj te same wartości jako sekrety repozytorium: `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID` i `VITE_EMAILJS_PUBLIC_KEY`. Workflow używa ich przy buildzie strony.
+
+`to_email` zawiera oba adresy z `src/config.js`. Public Key EmailJS jest przeznaczony do użycia w przeglądarce; ogranicz jego użycie do domeny strony w ustawieniach EmailJS.
 
 ## Podstrony
 
