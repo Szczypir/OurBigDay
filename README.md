@@ -37,7 +37,7 @@ Ta strona jest przygotowana pod hosting statyczny. Najprościej zrobić to przez
 
 ### 2) Ustaw Vite pod GitHub Pages
 
-`vite.config.js` używa `/OurBigDay/` jako bazy w buildzie produkcyjnym i `/` podczas pracy lokalnej. Build generuje także osobne pliki wejściowe podstron, dzięki czemu GitHub Pages może je serwować bez serwerowego fallbacku.
+`vite.config.js` używa `/` jako bazy, ponieważ strona działa pod własną domeną `am-wedding.com.pl`. Build generuje także osobne pliki wejściowe podstron, dzięki czemu GitHub Pages może je serwować bez serwerowego fallbacku.
 
 ### 3) Dodaj workflow deploy
 
@@ -116,7 +116,7 @@ https://twoja-nazwa-uzytkownika.github.io/nazwa-repozytorium/
 
 ### 6) Ważne o podstronach
 
-Podstrony mają czyste adresy, np. `/OurBigDay/szczegoly` i `/OurBigDay/kontakt`. Build tworzy dla nich katalogi z `index.html`, więc bezpośrednie wejście i odświeżenie działają na GitHub Pages bez `#`.
+Podstrony mają czyste adresy, np. `/szczegoly` i `/kontakt`. Build tworzy dla nich katalogi z `index.html`, więc bezpośrednie wejście i odświeżenie działają na GitHub Pages bez `#`.
 
 ### 7) Domena własna
 

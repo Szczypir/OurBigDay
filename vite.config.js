@@ -22,7 +22,7 @@ function staticRoutePages() {
   };
 }
 
-export default defineConfig(({ command }) => ({
+export default defineConfig(() => ({
   plugins: [react(), staticRoutePages()],
-  base: command === 'build' ? '/OurBigDay/' : '/',
+  base: '/',
 }));
