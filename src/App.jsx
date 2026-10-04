@@ -12,8 +12,8 @@ const nav = [
   ['/szczegoly', 'Szczegóły', 'Szczegóły'],
   ['/plan', 'Plan dnia', 'Plan'],
   ['/faq', 'FAQ', 'FAQ'],
-  ['/kontakt', 'Kontakt', 'Kontakt'],
   ['/rsvp', 'Potwierdź obecność', 'Potwierdzenie'],
+  ['/kontakt', 'Kontakt', 'Kontakt'],
 ];
 const baseUrl = import.meta.env.BASE_URL;
 

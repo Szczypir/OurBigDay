@@ -46,7 +46,7 @@ export const wedding = {
   dressCode: 'Letnia elegancja. Prosimy, zostawcie kolory bieli dla Panny sMłodej.',
   giftNote: 'Największym prezentem będzie Wasza obecność. Jeśli jednak chcecie nas obdarować, ucieszy nas koperta.',
   faq: [
-    { question: 'Gdzie zaparkować?', answer: 'Przy kościele parkujemy wzdłuż ulic Starowiejsiej i Konstytucji 3 Maja, pod Spichlerzem korzystajcie z miejsc przy ulicach  Leśnej i Irysowej.' },
+    { question: 'Gdzie zaparkować?', answer: 'Przy kościele parkujemy wzdłuż ulic Starowiejsiej i Konstytucji 3 Maja. Pod Spichlerzem korzystajcie z miejsc przy ulicach  Leśnej i Irysowej.' },
     { question: 'Jak dojechać na ceremonię i przyjęcie?', answer: 'Mapy obu miejsc znajdziecie w zakładce Szczegóły. W razie pytań zadzwońcie do nas.' },
     { question: 'Czy będzie nocleg?', answer: 'Jeśli potrzebujecie noclegu, dajcie nam znać. Pomożemy znaleźć najlepszą opcję w okolicy. Zaznaczcie to przy potwierdzaniu obecności.' },
     { question: 'Czy mogę ubrać się na biało/beżowo/ecru?', image: { src: aykmImage, alt: 'Ola w białej czapce i okularach przeciwsłonecznych' }, answer: 'Możesz, ale nie chciałbym być w twojej skórze... Żartujemy! Prosimy, zostawcie kolory bieli dla Panny Młodej.' },
