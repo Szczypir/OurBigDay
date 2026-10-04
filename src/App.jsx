@@ -8,12 +8,12 @@ import RSVP from './pages/RSVP.jsx';
 import Contact from './pages/Contact.jsx';
 
 const nav = [
-  ['/', 'Strona główna'],
-  ['/szczegoly', 'Szczegóły'],
-  ['/plan', 'Plan dnia'],
-  ['/faq', 'FAQ'],
-  ['/kontakt', 'Kontakt'],
-  ['/rsvp', 'Potwierdź obecność'],
+  ['/', 'Strona główna', 'Start'],
+  ['/szczegoly', 'Szczegóły', 'Szczegóły'],
+  ['/plan', 'Plan dnia', 'Plan'],
+  ['/faq', 'FAQ', 'FAQ'],
+  ['/kontakt', 'Kontakt', 'Kontakt'],
+  ['/rsvp', 'Potwierdź obecność', 'Potwierdzenie'],
 ];
 const baseUrl = import.meta.env.BASE_URL;
 
@@ -40,7 +40,7 @@ function Header({ activePath }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return <header className={`topbar${isHidden ? ' topbar-hidden' : ''}`}><a className="brand" href={routeHref('/')}>{wedding.couple.initials}</a><nav aria-label="Główna nawigacja">{nav.map(([path, title]) => <a href={routeHref(path)} key={path} aria-current={path === activePath ? 'page' : undefined}>{title}</a>)}</nav></header>;
+  return <header className={`topbar${isHidden ? ' topbar-hidden' : ''}`}><a className="brand" href={routeHref('/')}>{wedding.couple.initials}</a><nav aria-label="Główna nawigacja">{nav.map(([path, title, compactTitle]) => <a href={routeHref(path)} key={path} aria-label={title} aria-current={path === activePath ? 'page' : undefined}><span className="nav-label-full" aria-hidden="true">{title}</span><span className="nav-label-mobile" aria-hidden="true">{compactTitle}</span></a>)}</nav></header>;
 }
 
 function Footer() {
