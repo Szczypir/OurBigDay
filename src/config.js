@@ -41,7 +41,7 @@ export const wedding = {
   schedule: [
     { time: '14:30', title: 'Ceremonia', detail: 'Msza święta w kościele w Borowie' },
     { time: '16:00', title: 'Przyjazd do spichlerza', detail: 'Zbieramy się w Spichlerzu Galowice' },
-    { time: '04:00', title: 'Zakończenie zabawy', detail: 'Ostatnie tany i pożegnanie' },
+    { time: '04:00', title: 'Zakończenie zabawy', detail: 'Ostatnie tańce i pożegnanie' },
   ],
   dressCode: 'Letnia elegancja. Prosimy, zostawcie kolory bieli dla Panny sMłodej.',
   giftNote: 'Największym prezentem będzie Wasza obecność. Jeśli jednak chcecie nas obdarować, ucieszy nas koperta.',

@@ -8,6 +8,7 @@ import './home.css';
 import './map.css';
 import './faq.css';
 import './contact.css';
+import './readability.css';
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
