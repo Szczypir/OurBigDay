@@ -1,1 +1,1 @@
-.hero-date{font-size:16px}@media(max-width:560px){.intro-side{display:block;margin:50px 0 0}.hero-date{font-size:12px;letter-spacing:.06em}}
+.hero-date{font-size:16px}.countdown-section{flex-direction:column;align-items:center;justify-content:center;gap:22px;text-align:center}.countdown-section>div{width:100%}.countdown{justify-content:center}.countdown-date{width:auto;margin:0}@media(max-width:560px){.intro-side{display:block;margin:50px 0 0}.hero-date{font-size:12px;letter-spacing:.06em}}

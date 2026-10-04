@@ -13,6 +13,7 @@ const nav = [
   ['/plan', 'Plan dnia'],
   ['/faq', 'FAQ'],
   ['/kontakt', 'Kontakt'],
+  ['/rsvp', 'Potwierdź obecność'],
 ];
 const baseUrl = import.meta.env.BASE_URL;
 
@@ -39,7 +40,7 @@ function Header({ activePath }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return <header className={`topbar${isHidden ? ' topbar-hidden' : ''}`}><a className="brand" href={routeHref('/')}>{wedding.couple.initials}</a><nav aria-label="Główna nawigacja">{nav.map(([path, title]) => <a href={routeHref(path)} key={path} aria-current={path === activePath ? 'page' : undefined}>{title}</a>)}</nav><a className="nav-rsvp" href={routeHref('/rsvp')} aria-current={activePath === '/rsvp' ? 'page' : undefined}>Potwierdź obecność <span>↗</span></a></header>;
+  return <header className={`topbar${isHidden ? ' topbar-hidden' : ''}`}><a className="brand" href={routeHref('/')}>{wedding.couple.initials}</a><nav aria-label="Główna nawigacja">{nav.map(([path, title]) => <a href={routeHref(path)} key={path} aria-current={path === activePath ? 'page' : undefined}>{title}</a>)}</nav></header>;
 }
 
 function Footer() {
