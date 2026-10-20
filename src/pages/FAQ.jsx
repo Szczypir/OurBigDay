@@ -1,6 +1,10 @@
 import { wedding } from "../config.js";
 import PageIntro from "../components/PageIntro.jsx";
 
+function bindShortWords(text) {
+  return text.replace(/(^|\s)([aiouwz])\s+/gi, "$1$2\u00a0");
+}
+
 export default function FAQ() {
   return (
     <>
@@ -31,7 +35,7 @@ export default function FAQ() {
                   className="smallPhoto"
                 />
               )}
-              <p>{item.answer}</p>
+              <p>{bindShortWords(item.answer)}</p>
             </div>
           </details>
         ))}
