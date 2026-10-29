@@ -28,6 +28,19 @@ Formularz wysyła odpowiedzi bez otwierania aplikacji pocztowej. Wymaga konfigur
 
 `to_email` zawiera oba adresy z `src/config.js`. Public Key EmailJS jest przeznaczony do użycia w przeglądarce; ogranicz jego użycie do domeny strony w ustawieniach EmailJS.
 
+### Darmowe statystyki odwiedzin przez Cloudflare Web Analytics
+
+Strona może opcjonalnie wysyłać statystyki odsłon do Cloudflare Web Analytics. Usługa jest dostępna na wszystkich planach Cloudflare i nie wymaga przenoszenia domeny ani zmiany DNS na Cloudflare. Skrypt jest ładowany tylko wtedy, gdy ustawiono `VITE_CLOUDFLARE_WEB_ANALYTICS_TOKEN`; bez tej wartości analityka pozostaje wyłączona.
+
+1. Utwórz bezpłatne konto w [Cloudflare](https://dash.cloudflare.com/sign-up) (jeśli jeszcze go nie masz).
+2. W panelu wybierz **Web Analytics** i kliknij **Add a site**.
+3. Wpisz host strony `am-wedding.com.pl`, wybierz go z listy i kliknij **Done**.
+4. Otwórz **Manage site** i skopiuj fragment skryptu. Z tokenu w `data-cf-beacon` ustaw wartość zmiennej `VITE_CLOUDFLARE_WEB_ANALYTICS_TOKEN`.
+5. Na GitHubie dodaj zmienną repozytorium `VITE_CLOUDFLARE_WEB_ANALYTICS_TOKEN` w `Settings > Secrets and variables > Actions > Variables`. Nie wklejaj całego skryptu — potrzebny jest sam token.
+6. Wypchnij zmianę na `main` albo uruchom ponownie workflow wdrażający stronę, aby nowa zmienna została uwzględniona w buildzie.
+
+Po wdrożeniu dane pojawią się w panelu Web Analytics po kilku minutach. Skrypt mierzy standardowe odsłony stron; nie dodaje śledzenia formularzy ani własnego panelu w aplikacji. Cloudflare opisuje tę usługę jako privacy-first, jednak informacje o analityce należy uwzględnić w odpowiedniej informacji o prywatności.
+
 ## Podstrony
 
 - `/` — landing, odliczanie i zajawka historii
